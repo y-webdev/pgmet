@@ -8,11 +8,6 @@ export const websiteInfo = {
     logo: 'logo_pgmet.png'
 }
 
-export const facebookPageInfo = {
-    url: 'https://www.facebook.com/pgmetkn',
-    title: 'Фейсбук страница на'
-}
-
 export const navItems = [
     {
         path: '/',
