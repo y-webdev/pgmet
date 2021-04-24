@@ -1,12 +1,12 @@
 <template>
     <header v-if="data.results"  class="container">
-        <top-menu :data="data" :websiteInfo="websiteInfo"/>
-        <Navigation :data="data" :websiteInfo="websiteInfo"/>
+        <top-menu :data="data" :shortName="websiteInfo.shortName"/>
+        <Navigation :data="data"/>
     </header>
 </template>
 
 <script>
-import { navItems, websiteInfo } from '../../composable/staticData';
+import { websiteInfo } from '../../composable/staticData';
 import fetchData from '../../composable/fetchData';
 import TopMenu from './header/TopMenu'
 import Navigation from './header/Navigation'
@@ -14,7 +14,6 @@ import Navigation from './header/Navigation'
 export default {
     data() {
         return {
-            routes: navItems,
             websiteInfo
         }
     },

@@ -7,7 +7,7 @@
             <a :href="'tel:+359' + data.results.phone" class="d-md-none text-white me-3" title="Телефон">
                 <i class="fas fa-phone-square fa-lg"></i>
             </a>
-            <a :href="data.results.mapDirection" class="text-white me-3" :title="'Упътвания до ' +  websiteInfo.shortName + ' в Google Карти'" target="_new">
+            <a :href="data.results.mapDirection" class="text-white me-3" :title="'Упътвания до ' +  shortName + ' в Google Карти'" target="_new">
                 <i class="fas fa-directions fa-lg"></i>
             </a>
             <a :href="'mailto:' + data.results.email" class="text-white me-3" title="Email" target="_new">
@@ -23,6 +23,6 @@
 
 <script>
 export default {
-    props: ['data', 'websiteInfo']
+    props: ['data', 'shortName']
 }
 </script>

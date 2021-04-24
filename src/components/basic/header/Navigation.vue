@@ -34,10 +34,17 @@
 </template>
 
 <script>
+import { navItems, websiteInfo } from '../../../composable/staticData';
 import NavFooter from './NavFooter'
 
 export default {
-    props: ['data', 'websiteInfo'],
+    props: ['data'],
+    data() {
+        return {
+            navItems,
+            websiteInfo
+        }
+    },
     components: {
         NavFooter
     }
