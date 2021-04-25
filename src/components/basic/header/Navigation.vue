@@ -54,7 +54,7 @@ export default {
         window.addEventListener("scroll", () => {
             const scrollPosition = window.scrollY;
             const el = this.$refs.fixedMenu;
-            if (scrollPosition) {
+            if (scrollPosition > 62) {
                 el.classList.add('fixed-top');
                 el.querySelector('.navbar-brand img').classList.add('w-50')
 
