@@ -2,9 +2,12 @@ import {ref} from 'vue';
 
 const fetchData = (query) => {
     const data = ref([])
+    const loading = ref(true)
     const error = ref(null)
 
     const load = async () => {
+        loading.value = true;
+
         const response = await fetch(process.env.VUE_APP_API + query);
 
         try {
@@ -18,9 +21,14 @@ const fetchData = (query) => {
             error.value = err.message;
         }
 
+        loading.value = false;
     }
 
-    return {data, error, load}
+    (async () => {
+        await load();
+    })();
+
+    return {data, loading, error}
 }
 
 export default fetchData;

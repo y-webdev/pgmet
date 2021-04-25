@@ -1,5 +1,5 @@
 <template>
-    <header v-if="data.results"  class="container">
+    <header v-if="!loading && data.results"  class="container">
         <top-menu :data="data" :shortName="websiteInfo.shortName"/>
         <Navigation :data="data"/>
     </header>
@@ -12,6 +12,7 @@ import TopMenu from './header/TopMenu'
 import Navigation from './header/Navigation'
 
 export default {
+
     data() {
         return {
             websiteInfo
@@ -22,10 +23,9 @@ export default {
         Navigation
     },
     setup() {
-        const {data, error, load} = fetchData('nav');
-        load();
-        return {data, error};
-    }
+        const {data, loading, error} = fetchData('nav');
+        return {data, loading, error};
+    },
 }
 </script>
 

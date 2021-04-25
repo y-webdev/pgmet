@@ -1,18 +1,27 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
+    <Slides v-if="!loading" :slidesData="data.results.slides"/>
     <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
 </template>
 
 <script>
-// @ is an alias to /src
+import fetchData from "@/composable/fetchData";
 import HelloWorld from '@/components/HelloWorld.vue'
+import Slides from '@/components/home/Slides'
+
 
 export default {
-  name: 'Home',
-  components: {
-    HelloWorld
-  }
+    data() {
+      return {
+          loading: false
+      }
+    },
+    setup() {
+        const {data, loading, error} = fetchData('home');
+        return {data, loading, error};
+    },
+    components: {
+        HelloWorld,
+        Slides
+    }
 }
 </script>

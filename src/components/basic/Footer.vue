@@ -1,10 +1,12 @@
 <template>
     <footer class="bg-dark-blue text-white p-3">
-        <div class="row text-center border-bottom pb-3 mb-3">
-            <div class="col-md-3">
-                <a href="#" title="title" target="_blank">title</a>
+
+        <div v-if="!loading" class="row text-center border-bottom pb-3 mb-3">
+            <div v-for="link in data.results.links" class="col-md-3">
+                <a :href=link.link rel="nofollow" :title="link.name" target="_blank">{{ link.name }}</a>
             </div>
         </div>
+        <div v-if="loading">Still load</div>
         <div class="row text-center small">
             <div class="col-md-4 small p-3">
                 &copy; {{ copyright() }}.
@@ -22,7 +24,8 @@
 </template>
 
 <script>
-import { websiteInfo, webmaster } from '../../composable/staticData';
+import { websiteInfo, webmaster } from '@/composable/staticData';
+import fetchData from "@/composable/fetchData";
 
 export default {
     data() {
@@ -30,6 +33,10 @@ export default {
             websiteInfo,
             webmaster
         }
+    },
+    setup() {
+        const {data, loading, error} = fetchData('footer');
+        return {data, loading, error};
     },
     methods: {
         copyright() {

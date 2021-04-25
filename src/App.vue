@@ -93,4 +93,9 @@ export default {
 .bg-dark-blue {
     background-color: #1a3156;
 }
+
+.top-section {
+    position: relative;
+    top: -2.5rem;
+}
 </style>
