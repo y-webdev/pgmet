@@ -11,11 +11,6 @@ import Content from '@/components/home/Content'
 import AutoloadModal from '@/components/home/content/AutoloadModal'
 
 export default {
-    data() {
-      return {
-          loading: false
-      }
-    },
     setup() {
         const {data, loading, error} = fetchData('home');
         return {data, loading, error};

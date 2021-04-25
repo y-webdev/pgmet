@@ -9,7 +9,7 @@
                 <h4 v-html="item.title"></h4>
                 <p class="pb-2">{{ item.subject }}</p>
             </div>
-            <!-- Must set url when single news is ready -->
+            <!-- TODO: Must set url when single news is ready -->
             <router-link to="/about" class="btn btn-primary w-100 position-absolute bottom-0">чети още...</router-link>
 <!--            <a class="btn btn-primary w-100 position-absolute bottom-0" href="https://google.com">чети още...</a>-->
         </div>

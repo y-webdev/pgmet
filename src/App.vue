@@ -89,6 +89,7 @@ export default {
 
 #app {
     font-family: Repo, sans-serif;
+    overflow-x: hidden;
 }
 
 #app a {
@@ -146,5 +147,9 @@ section {
 
 .modal-close-button:hover {
     color: black
+}
+
+.square-img {
+    object-fit: cover;
 }
 </style>

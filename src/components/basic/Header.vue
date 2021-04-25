@@ -30,11 +30,16 @@ export default {
 </script>
 
 <style scoped>
+header {
+    position:relative;
+    z-index: 1;
+}
 header:before {
     content: '';
     position: absolute;
-    left: 0;
-    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
     height: 11.625rem;
     background: #428dc9;
     z-index: -1;

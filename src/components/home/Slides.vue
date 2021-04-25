@@ -27,9 +27,3 @@ export default {
     }
 }
 </script>
-
-<style scoped>
-section {
-    z-index: -1;
-}
-</style>
