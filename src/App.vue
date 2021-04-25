@@ -86,16 +86,65 @@ export default {
     font-weight: 900;
     font-style: normal;
 }
+
 #app {
     font-family: Repo, sans-serif;
+}
+
+#app a {
+    text-decoration: none;
+}
+
+#app *{
+    border-radius: 0;
+}
+
+#app a:hover {
+    text-decoration: underline;
+}
+
+.text-justify {
+    text-align: justify;
 }
 
 .bg-dark-blue {
     background-color: #1a3156;
 }
 
-.top-section {
+section {
     position: relative;
-    top: -2.5rem;
+    margin-top: -2.5rem;
+    z-index: 0;
+}
+
+.iframe-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    height: 0;
+}
+
+.iframe-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.modal-close-button {
+    border:0;
+    background-color: transparent;
+    font-size: 1.5rem;
+    color: darkgray;
+    margin-left: auto;
+}
+
+.modal-close-button [class^=fa] {
+    margin-right: .5rem;
+}
+
+.modal-close-button:hover {
+    color: black
 }
 </style>

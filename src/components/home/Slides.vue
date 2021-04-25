@@ -1,6 +1,10 @@
 <template>
-    <section v-if="slidesData" class="top-section">
-        <vueper-slides :bullets="false" autoplay>
+    <section v-if="slidesData">
+        <vueper-slides
+            :bullets="false"
+            :arrows="false"
+            :fade="true"
+            autoplay>
             <vueper-slide v-for="(slides, i) in slidesData" :key="i" :image="path + slides.image" />
         </vueper-slides>
     </section>
@@ -25,5 +29,7 @@ export default {
 </script>
 
 <style scoped>
-
+section {
+    z-index: -1;
+}
 </style>

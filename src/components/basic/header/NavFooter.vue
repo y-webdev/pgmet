@@ -6,7 +6,7 @@
         </p>
     </div>
     <div v-if="data.results.homeNews[0]" class="modal fade" id="newsHomeModal" tabindex="-1" aria-labelledby="newsHomeModal" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Затвори"></button>

@@ -1,13 +1,14 @@
 <template>
     <Slides v-if="!loading" :slidesData="data.results.slides"/>
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Content v-if="!loading"  :contentData="data.results"/>
+    <autoload-modal v-if="!loading" :autoloadContent="data.results.autoloadmodal[0]"/>
 </template>
 
 <script>
 import fetchData from "@/composable/fetchData";
-import HelloWorld from '@/components/HelloWorld.vue'
 import Slides from '@/components/home/Slides'
-
+import Content from '@/components/home/Content'
+import AutoloadModal from '@/components/home/content/AutoloadModal'
 
 export default {
     data() {
@@ -20,8 +21,9 @@ export default {
         return {data, loading, error};
     },
     components: {
-        HelloWorld,
-        Slides
+        Slides,
+        Content,
+        AutoloadModal
     }
 }
 </script>
