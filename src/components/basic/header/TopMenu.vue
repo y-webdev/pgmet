@@ -15,14 +15,21 @@
             </a>
         </div>
         <div class="col-md-6 pe-0 text-end">
-            <a class="text-white ms-3" :href="data.results.buyerPrile" target="_new" title="Профил на купувача">Профил на купувача</a>
-            <!--                <a href="contacts" class="text-white ms-3" title="Контакти">Контакти</a>-->
+            <a class="text-white ms-3" :href="data.results.buyerProfile" target="_new" title="Профил на купувача">Профил на купувача</a>
+            <router-link :to="contact.path" class="text-white ms-3" :title="contact.name">{{ contact.name }}</router-link>
         </div>
     </div>
 </template>
 
 <script>
+import { contact } from '@/composable/staticData';
+
 export default {
-    props: ['data', 'shortName']
+    props: ['data', 'shortName'],
+    data() {
+        return {
+            contact
+        }
+    }
 }
 </script>

@@ -50,6 +50,12 @@ export const footerNavItems = [
     },
 ]
 
+export const contact = {
+    path: '/contacts',
+    name: 'Контакти',
+    component: () => import('@/views/Contacts.vue')
+}
+
 export const webmaster = {
     text: 'Уеб дизайн и програмиране',
     url: 'https://www.yweb.dev',
