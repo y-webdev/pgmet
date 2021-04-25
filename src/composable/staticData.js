@@ -32,6 +32,22 @@ export const navItems = [
         name: 'Projects',
         component: () => import('@/views/Projects.vue')
     },
+
+]
+
+export const footerNavItems = [
+    {
+        path: '/privacy',
+        name: 'Поверителност',
+        icon: 'fa-user-shield',
+        component: () => import('@/views/Privacy.vue')
+    },
+    {
+        path: '/cookies',
+        name: 'Бисквитки',
+        icon: 'fa-cookie-bite',
+        component: () => import('@/views/Cookies.vue')
+    },
 ]
 
 export const webmaster = {

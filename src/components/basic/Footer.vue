@@ -1,19 +1,17 @@
 <template>
     <footer class="bg-dark-blue text-white p-3">
-
         <div v-if="!loading" class="row text-center border-bottom pb-3 mb-3">
             <div v-for="link in data.results.links" class="col-md-3">
                 <a :href=link.link rel="nofollow" :title="link.name" target="_blank">{{ link.name }}</a>
             </div>
         </div>
-        <div v-if="loading">Still load</div>
         <div class="row text-center small">
             <div class="col-md-4 small p-3">
                 &copy; {{ copyright() }}.
             </div>
             <div class="col-md-4 m-auto small">
-                <a class="pe-2" href="#" rel="nofollow" title="Поверителност"><i class="fas fa-user-shield text-white"></i> Поверителност</a>
-                <a class="ms-2" href="#" rel="nofollow" title="Бисквитки"><i class="fas fa-cookie-bite text-white"></i> Бисквитки</a>
+                <router-link v-for="item in footerNavItems" :to="item.path" rel="nofollow" :title="item.name" class="pe-2"><i :class="`fas ${item.icon} text-white`"></i>
+                    {{ item.name }}</router-link>
             </div>
             <div class="col-md-4 small p-3">
                 {{ webmaster.text }}:
@@ -24,14 +22,15 @@
 </template>
 
 <script>
-import { websiteInfo, webmaster } from '@/composable/staticData';
+import { websiteInfo, webmaster, footerNavItems } from '@/composable/staticData';
 import fetchData from "@/composable/fetchData";
 
 export default {
     data() {
         return {
             websiteInfo,
-            webmaster
+            webmaster,
+            footerNavItems
         }
     },
     setup() {
