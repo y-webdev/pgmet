@@ -1,5 +1,5 @@
 <template>
-    <nav class="navbar navbar-expand-lg bg-white">
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
         <div class="container-fluid">
             <a class="navbar-brand" href="/">
                 <img :src="require(`@/assets/${websiteInfo.logo}`)" :alt="websiteInfo.shortName + ' лого'">
@@ -9,17 +9,11 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarContent">
                 <ul class="navbar-nav text-uppercase m-auto">
-                    <li class="nav-item">
-                        <router-link to="/" class="nav-link">Home</router-link>
-                    </li>
-                    <li class="nav-item">
-                        <router-link to="/about" class="nav-link">About</router-link>
-                    </li>
-                    <li class="nav-item">
-                        <router-link to="/news" class="nav-link">News</router-link>
-                    </li>
-                    <li class="nav-item">
-                        <router-link to="/projects" class="nav-link">Projects</router-link>
+                    <li v-for="item in navItems" class="nav-item">
+                        <router-link :to="item.path" class="nav-link">
+                            <i v-if="item.icon" :class="item.icon"></i>
+                            <span v-else>{{ item.name }}</span>
+                        </router-link>
                     </li>
                     <!--                    <li class="nav-item dropdown">-->
                     <!--                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">-->
@@ -40,8 +34,8 @@
 </template>
 
 <script>
-import { navItems, websiteInfo } from '../../../composable/staticData';
-import NavFooter from './NavFooter'
+import { navItems, websiteInfo } from '@/composable/staticData';
+import NavFooter from '@/components/basic/header/NavFooter'
 
 export default {
     props: ['data'],
@@ -71,8 +65,8 @@ export default {
     font-family: "Repo", sans-serif;
 }
 
-a.router-link-exact-active {
-    color: #42b983;
+.navbar-light a.router-link-exact-active span,
+.navbar-light a.router-link-exact-active i {
+    color: #428dc9;
 }
-
 </style>

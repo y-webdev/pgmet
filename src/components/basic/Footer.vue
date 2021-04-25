@@ -10,7 +10,7 @@
                 &copy; {{ copyright() }}.
             </div>
             <div class="col-md-4 m-auto small">
-                <router-link v-for="item in footerNavItems" :to="item.path" rel="nofollow" :title="item.name" class="pe-2"><i :class="`fas ${item.icon} text-white`"></i>
+                <router-link v-for="item in footerNavItems" :to="item.path" rel="nofollow" :title="item.name" class="pe-2"><i :class="`${item.icon} text-white`"></i>
                     {{ item.name }}</router-link>
             </div>
             <div class="col-md-4 small p-3">

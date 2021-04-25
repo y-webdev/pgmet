@@ -11,41 +11,41 @@ export const websiteInfo = {
 export const navItems = [
     {
         path: '/',
-        name: 'Home',
+        name: 'Начало',
+        icon: 'fas fa-home',
         component: Home
     },
     {
         path: '/about',
-        name: 'About',
+        name: 'За нас',
         // route level code-splitting
         // this generates a separate chunk (about.[hash].js) for this route
         // which is lazy-loaded when the route is visited.
         component: () => import(/* webpackChunkName: "about" */ '@/views/About.vue')
     },
     {
-        path: '/news',
-        name: 'News',
-        component: () => import('@/views/News.vue')
-    },
-    {
         path: '/projects',
-        name: 'Projects',
+        name: 'Проекти',
         component: () => import('@/views/Projects.vue')
     },
-
+    {
+        path: '/news',
+        name: 'Новини',
+        component: () => import('@/views/News.vue')
+    }
 ]
 
 export const footerNavItems = [
     {
         path: '/privacy',
         name: 'Поверителност',
-        icon: 'fa-user-shield',
+        icon: 'fas fa-user-shield',
         component: () => import('@/views/Privacy.vue')
     },
     {
         path: '/cookies',
         name: 'Бисквитки',
-        icon: 'fa-cookie-bite',
+        icon: 'fas fa-cookie-bite',
         component: () => import('@/views/Cookies.vue')
     },
 ]
