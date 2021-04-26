@@ -1,17 +1,39 @@
 <template>
-    <Header/>
-    <router-view/>
-    <Footer/>
+    <Loader v-if="loader"/>
+    <div v-else>
+        <Header/>
+        <router-view/>
+        <Footer/>
+    </div>
+
 </template>
 
 <script>
+import Loader from './components/Loader';
 import Header from './components/basic/Header';
 import Footer from './components/basic/Footer';
+import router from "./router";
 
 export default {
     components: {
+        Loader,
         Header,
         Footer
+    },
+    data() {
+        return {
+            loader: false
+        }
+    },
+    mounted() {
+        router.beforeEach((to, from, next) => {
+            this.loader = true
+            next()
+        })
+
+        router.afterEach(() => {
+            this.loader = false
+        })
     }
 }
 </script>
