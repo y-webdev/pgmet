@@ -31,9 +31,7 @@ export default {
             next()
         })
 
-        router.afterEach(() => {
-            this.loader = false
-        })
+        router.afterEach(() => this.loader = false)
     }
 }
 </script>
