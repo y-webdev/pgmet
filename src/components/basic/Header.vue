@@ -32,6 +32,8 @@ export default {
 <style scoped>
 header {
     position:relative;
+    height: 11.6rem;
+    margin-bottom: 2.5rem;
     z-index: 1;
 }
 header:before {
@@ -40,7 +42,7 @@ header:before {
     left: 50%;
     transform: translateX(-50%);
     width: 100vw;
-    height: 11.625rem;
+    height: 100%;
     background: #428dc9;
     z-index: -1;
 }
