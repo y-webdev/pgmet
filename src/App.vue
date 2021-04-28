@@ -159,22 +159,6 @@ section.container {
     height: 100%;
 }
 
-.modal-close-button {
-    border:0;
-    background-color: transparent;
-    font-size: 1.5rem;
-    color: darkgray;
-    margin-left: auto;
-}
-
-.modal-close-button [class^=fa] {
-    margin-right: .5rem;
-}
-
-.modal-close-button:hover {
-    color: black
-}
-
 .square-img {
     object-fit: cover;
 }

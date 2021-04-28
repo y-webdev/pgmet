@@ -2,7 +2,7 @@
     <section class="container">
         <div class="bg-white py-5 px-3 shadow mb-3">
             <h2 v-if="docs.length === 0" class="text-center mb-3">Информацията все още не е налична</h2>
-            <h2 v-else class="text-center mb-3">Административни услуги извършвани от ПГМЕТ</h2>
+            <h2 v-else class="text-center mb-3">{{ heading }}</h2>
             <button v-if="!mobileDetect" v-for="doc in docs" class="btn btn-white border w-100 mb-3 ps-5 position-relative pdf" data-bs-toggle="modal" data-bs-target="#docs-modal" @click="editModal(doc.document)">{{ doc.name }}</button>
             <a v-else v-for="doc in docs" :href="path + doc.document" class="btn btn-white border d-block mb-3 ps-5 position-relative pdf">{{ doc.name }}</a>
         </div>
@@ -11,12 +11,7 @@
         <div class="modal-dialog modal-fullscreen">
             <div class="modal-content border-0">
                 <div class="modal-header">
-                    <button type="button" class="modal-close-button" data-bs-dismiss="modal" aria-label="Затвори">
-                        <span aria-hidden="true">
-                          <i class="fas fa-times text-danger"></i>
-                          <span class="ml-2 font-weight-light">Затвори</span>
-                        </span>
-                    </button>
+                    <modal-button/>
                 </div>
                 <div class="modal-body p-0">
                     <div class="iframe-modal-container">
@@ -29,9 +24,14 @@
 </template>
 
 <script>
+import ModalButton from '@/components/modals/ModalButton';
 import { isMobile } from 'mobile-device-detect';
+
 export default {
     props: ['docs', 'heading'],
+    components: {
+      ModalButton
+    },
     data() {
         return {
             path: process.env.VUE_APP_DOCS_PATH,

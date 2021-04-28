@@ -4,12 +4,7 @@
         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <button type="button" class="modal-close-button" data-bs-dismiss="modal" aria-label="Затвори">
-                        <span aria-hidden="true">
-                          <i class="fas fa-times text-danger"></i>
-                          <span class="ml-2 font-weight-light">Затвори</span>
-                        </span>
-                    </button>
+                    <modal-button/>
                 </div>
                 <div class="modal-body p-0">
                     <div :class="autoloadContent.padding">{{ autoloadContent.description }}</div>
@@ -23,9 +18,13 @@
 
 <script>
 import {Modal} from 'bootstrap'
+import ModalButton from '@/components/modals/ModalButton';
 
 export default {
     props: ['autoloadContent'],
+    components: {
+      ModalButton
+    },
     mounted() {
         if (this.autoloadContent.enable === 'enable') {
             new Modal(this.$refs.autoLoadModal).show()
