@@ -7,7 +7,7 @@
             <a v-else v-for="doc in docs" :href="path + doc.document" class="btn btn-white border d-block mb-3 ps-5 position-relative pdf">{{ doc.name }}</a>
         </div>
     </section>
-    <div v-if="!mobileDetect" class="modal fade" id="docs-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+    <div v-if="!mobileDetect && docs.length !== 0" class="modal fade" id="docs-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-fullscreen">
             <div class="modal-content border-0">
                 <modal-header/>
