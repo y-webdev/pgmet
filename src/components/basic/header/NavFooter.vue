@@ -8,9 +8,7 @@
     <div v-if="data.results.homeNews[0]" class="modal fade" id="newsHomeModal" tabindex="-1" aria-labelledby="newsHomeModal" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Затвори"></button>
-                </div>
+                <modal-header/>
                 <div class="modal-body">
                     {{data.results.homeNews[0].description}}
                 </div>
@@ -20,8 +18,13 @@
 </template>
 
 <script>
+import ModalHeader from '@/components/modals/ModalHeader'
+
 export default {
     props: ['data'],
+    components: {
+      ModalHeader
+    },
     methods: {
         currentDate() {
             const date =  new Intl.DateTimeFormat('bg-BG', {
