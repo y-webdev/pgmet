@@ -3,8 +3,8 @@
         <div class="bg-white py-5 px-3 shadow mb-3">
             <h2 v-if="docs.length === 0" class="text-center mb-3">Информацията все още не е налична</h2>
             <h2 v-else class="text-center mb-3">{{ heading }}</h2>
-            <button v-if="!mobileDetect" v-for="doc in docs" class="btn btn-white border w-100 mb-3 ps-5 position-relative pdf" data-bs-toggle="modal" data-bs-target="#docs-modal" @click="editModal(doc.document)">{{ doc.name }}</button>
-            <a v-else v-for="doc in docs" :href="path + doc.document" class="btn btn-white border d-block mb-3 ps-5 position-relative pdf">{{ doc.name }}</a>
+            <button v-if="!mobileDetect" v-for="doc in docs" :class="elClass + ' w-100'" data-bs-toggle="modal" data-bs-target="#docs-modal" @click="editModal(doc.document)">{{ doc.name }}</button>
+            <a v-else v-for="doc in docs" :href="path + doc.document" :class="elClass + ' d-block'">{{ doc.name }}</a>
         </div>
     </section>
     <div v-if="!mobileDetect && docs.length !== 0" class="modal fade" id="docs-modal" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
@@ -34,7 +34,8 @@ export default {
         return {
             path: process.env.VUE_APP_DOCS_PATH,
             filePath: null,
-            mobileDetect: isMobile
+            mobileDetect: isMobile,
+            elClass: 'btn border mb-3 ps-5 position-relative pdf'
         }
     },
     methods: {
@@ -63,5 +64,4 @@ button:hover {
     transform: translateY(-50%);
     left: 1rem;
 }
-
 </style>
