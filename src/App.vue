@@ -31,7 +31,9 @@ export default {
             next()
         })
 
-        router.afterEach(() => this.loader = false)
+        router.afterEach(() => {
+            setTimeout(() => this.loader = false, 1000)
+        })
     }
 }
 </script>
@@ -138,6 +140,10 @@ section {
     z-index: 0;
 }
 
+section.container {
+    padding-top: 2.5rem;
+}
+
 .iframe-container {
     position: relative;
     width: 100%;
@@ -171,5 +177,20 @@ section {
 
 .square-img {
     object-fit: cover;
+}
+
+.iframe-modal-container {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 71px);
+}
+
+.iframe-modal-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
 }
 </style>

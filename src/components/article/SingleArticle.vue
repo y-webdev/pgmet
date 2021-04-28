@@ -3,7 +3,7 @@
         <div class="bg-white py-5 px-3 shadow mb-3" ref="article">
             <div v-if="articles.length > 0" v-for="article in articles" class="row border-bottom mx-0 my-3 p-3">
                 <div class="col-md-3">
-                    <img class="square-img w-100" :src="path + article.image" :alt="article.id" ref="squareImg">
+                    <img class="square-img w-100" :src="path + article.image" :alt="article.id">
                 </div>
                 <div class="col-md-9">
                     <h3 v-html="article.title"/>

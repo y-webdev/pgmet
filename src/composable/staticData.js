@@ -52,6 +52,24 @@ export const navItems = [
         }
     },
     {
+        path: '/services',
+        name: 'Услуги',
+        component: () => import('@/views/Services.vue'),
+        meta: {
+            title: `Услуги | ${title}`,
+            metaTags: [
+                {
+                    name: 'description',
+                    content: 'The home page of our example app.'
+                },
+                {
+                    property: 'og:description',
+                    content: 'The home page of our example app.'
+                }
+            ]
+        }
+    },
+    {
         path: '/projects',
         name: 'Проекти',
         component: () => import('@/views/Projects.vue'),
