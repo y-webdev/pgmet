@@ -3,9 +3,7 @@
          aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
             <div class="modal-content">
-                <div class="modal-header">
-                    <modal-button/>
-                </div>
+                <modal-header/>
                 <div class="modal-body p-0">
                     <div :class="autoloadContent.padding">{{ autoloadContent.description }}</div>
                     <a class="btn d-block" :class="autoloadContent.btn_color" :href="autoloadContent.btn_link"
@@ -18,12 +16,12 @@
 
 <script>
 import {Modal} from 'bootstrap'
-import ModalButton from '@/components/modals/ModalButton';
+import ModalHeader from '@/components/modals/ModalHeader';
 
 export default {
     props: ['autoloadContent'],
     components: {
-      ModalButton
+      ModalHeader
     },
     mounted() {
         if (this.autoloadContent.enable === 'enable') {
