@@ -10,7 +10,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarContent">
                     <ul class="navbar-nav text-uppercase m-auto">
-                        <li v-for="item in navItems" class="nav-item m-auto">
+                        <li v-for="item in singleNavItems" class="nav-item m-auto">
                             <router-link :to="item.path" class="nav-link">
                                 <i v-if="item.icon" :class="item.icon"></i>
                                 <span v-else>{{ item.name }}</span>
@@ -36,14 +36,15 @@
 </template>
 
 <script>
-import { navItems, websiteInfo } from '@/composable/staticData';
+import { websiteInfo } from '@/composable/staticData';
+import { singleNavItems } from '@/router/singleNavItems';
 import NavFooter from '@/components/basic/header/NavFooter'
 
 export default {
     props: ['data'],
     data() {
         return {
-            navItems,
+            singleNavItems,
             websiteInfo
         }
     },

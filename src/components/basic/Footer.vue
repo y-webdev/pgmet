@@ -22,7 +22,8 @@
 </template>
 
 <script>
-import { websiteInfo, webmaster, footerNavItems } from '@/composable/staticData';
+import { websiteInfo, webmaster } from '@/composable/staticData';
+import { footerNavItems } from '@/router/footerNavItems'
 import fetchData from "@/composable/fetchData";
 
 export default {

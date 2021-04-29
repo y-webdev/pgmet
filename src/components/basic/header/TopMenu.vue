@@ -22,7 +22,7 @@
 </template>
 
 <script>
-import { contact } from '@/composable/staticData';
+import { contact } from '@/router/contact';
 
 export default {
     props: ['data', 'shortName'],

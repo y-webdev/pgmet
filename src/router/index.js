@@ -1,7 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import { navItems, footerNavItems, contact } from '@/composable/staticData';
+import { singleNavItems } from '@/router/singleNavItems'
+import { footerNavItems } from '@/router/footerNavItems';
+import { contact } from '@/router/contact';
 
-const routes = [...navItems, ...footerNavItems, contact];
+const routes = [...singleNavItems, ...footerNavItems, contact];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
