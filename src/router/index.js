@@ -1,9 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import { startRouter } from '@/router/startRouter'
 import { singleNavItems } from '@/router/singleNavItems'
+import { documents } from '@/router/documents'
 import { footerNavItems } from '@/router/footerNavItems';
 import { contact } from '@/router/contact';
 
-const routes = [...singleNavItems, ...footerNavItems, contact];
+const routes = [startRouter, ...documents.routes, ...singleNavItems, ...footerNavItems, contact];
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),

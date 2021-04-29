@@ -10,23 +10,29 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarContent">
                     <ul class="navbar-nav text-uppercase m-auto">
+                        <li class="nav-item m-auto">
+                            <router-link :to="startRouter.path" class="nav-link">
+                                <i :class="startRouter.icon"></i>
+                            </router-link>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                {{ documents.name }}
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li v-for="item in documents.routes">
+                                    <router-link :to="item.path" class="dropdown-item">
+                                        <span>{{ item.name }}</span>
+                                    </router-link>
+                                </li>
+                            </ul>
+                        </li>
                         <li v-for="item in singleNavItems" class="nav-item m-auto">
                             <router-link :to="item.path" class="nav-link">
                                 <i v-if="item.icon" :class="item.icon"></i>
                                 <span v-else>{{ item.name }}</span>
                             </router-link>
                         </li>
-                        <!--                    <li class="nav-item dropdown">-->
-                        <!--                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">-->
-                        <!--                            Dropdown-->
-                        <!--                        </a>-->
-                        <!--                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">-->
-                        <!--                            <li><a class="dropdown-item" href="#">Action</a></li>-->
-                        <!--                            <li><a class="dropdown-item" href="#">Another action</a></li>-->
-                        <!--                            <li><hr class="dropdown-divider"></li>-->
-                        <!--                            <li><a class="dropdown-item" href="#">Something else here</a></li>-->
-                        <!--                        </ul>-->
-                        <!--                    </li>-->
                     </ul>
                 </div>
             </div>
@@ -37,15 +43,19 @@
 
 <script>
 import { websiteInfo } from '@/composable/staticData';
+import { startRouter } from '@/router/startRouter';
 import { singleNavItems } from '@/router/singleNavItems';
+import { documents } from '@/router/documents';
 import NavFooter from '@/components/basic/header/NavFooter'
 
 export default {
     props: ['data'],
     data() {
         return {
+            startRouter,
             singleNavItems,
-            websiteInfo
+            websiteInfo,
+            documents
         }
     },
     components: {
