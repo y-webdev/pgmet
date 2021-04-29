@@ -15,18 +15,8 @@
                                 <i :class="startRouter.icon"></i>
                             </router-link>
                         </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                {{ documents.name }}
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li v-for="item in documents.routes">
-                                    <router-link :to="item.path" class="dropdown-item">
-                                        <span>{{ item.name }}</span>
-                                    </router-link>
-                                </li>
-                            </ul>
-                        </li>
+                        <navigation-dropdown :links="aboutStudents" :journal="true"/>
+                        <navigation-dropdown :links="documents" :journal="false"/>
                         <li v-for="item in singleNavItems" class="nav-item m-auto">
                             <router-link :to="item.path" class="nav-link">
                                 <i v-if="item.icon" :class="item.icon"></i>
@@ -45,7 +35,9 @@
 import { websiteInfo } from '@/composable/staticData';
 import { startRouter } from '@/router/startRouter';
 import { singleNavItems } from '@/router/singleNavItems';
+import {aboutStudents} from '@/router/aboutStudents'
 import { documents } from '@/router/documents';
+import NavigationDropdown from '@/components/basic/header/NavigationDropdown'
 import NavFooter from '@/components/basic/header/NavFooter'
 
 export default {
@@ -55,10 +47,12 @@ export default {
             startRouter,
             singleNavItems,
             websiteInfo,
+            aboutStudents,
             documents
         }
     },
     components: {
+        NavigationDropdown,
         NavFooter
     },
     mounted() {

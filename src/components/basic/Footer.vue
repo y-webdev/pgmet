@@ -19,12 +19,14 @@
             </div>
         </div>
     </footer>
+    <Ejournal v-if="!loading" :frameUrl="data.results.eJournal"/>
 </template>
 
 <script>
 import { websiteInfo, webmaster } from '@/composable/staticData';
 import { footerNavItems } from '@/router/footerNavItems'
 import fetchData from "@/composable/fetchData";
+import Ejournal from '@/components/modals/Ejournal'
 
 export default {
     data() {
@@ -33,6 +35,9 @@ export default {
             webmaster,
             footerNavItems
         }
+    },
+    components: {
+        Ejournal
     },
     setup() {
         const {data, loading, error} = fetchData('footer');

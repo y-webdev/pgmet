@@ -2,6 +2,7 @@ import {websiteInfo} from "../composable/staticData";
 
 const title = `${websiteInfo.shortName} "${websiteInfo.name}" - ${websiteInfo.location}`
 export const documents = {
+    id: 'documents',
     name: 'Документи',
     routes: [
         {
