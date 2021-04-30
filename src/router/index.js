@@ -12,7 +12,12 @@ const routes = [
     ...aboutStudents.routes,
     ...singleNavItems,
     ...footerNavItems,
-    contact
+    contact,
+    {
+        path: '/:catchAll(.*)',
+        name: 'NotFound',
+        component: () => import('@/components/404.vue')
+    }
 ];
 
 const router = createRouter({

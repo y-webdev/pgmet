@@ -1,5 +1,5 @@
-import {websiteInfo} from "../composable/staticData";
-import Home from "../views/Home";
+import {websiteInfo} from "@/composable/staticData";
+import Home from "@/views/Home";
 
 const title = `${websiteInfo.shortName} "${websiteInfo.name}" - ${websiteInfo.location}`
 export const startRouter = {

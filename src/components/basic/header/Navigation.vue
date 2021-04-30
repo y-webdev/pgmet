@@ -15,8 +15,8 @@
                                 <i :class="startRouter.icon"></i>
                             </router-link>
                         </li>
-                        <navigation-dropdown :links="aboutStudents" :journal="true"/>
-                        <navigation-dropdown :links="documents" :journal="false"/>
+                        <navigation-dropdown :name="aboutStudents.name" :id="aboutStudents.id" :links="aboutStudents.routes" :journal="true"/>
+                        <navigation-dropdown :name="documents.name" :id="documents.id" :links="documents.children" :journal="false"/>
                         <li v-for="item in singleNavItems" class="nav-item m-auto">
                             <router-link :to="item.path" class="nav-link">
                                 <i v-if="item.icon" :class="item.icon"></i>
@@ -56,9 +56,11 @@ export default {
         NavFooter
     },
     mounted() {
+        // TODO: Must fix this function. On load working, but on change route still working but throw error
         window.addEventListener("scroll", () => {
             const scrollPosition = window.scrollY;
             const el = this.$refs.fixedMenu;
+
             if (scrollPosition > 62) {
                 el.classList.add('fixed-top');
                 el.querySelector('.navbar-brand img').classList.add('w-50')

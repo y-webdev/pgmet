@@ -1,4 +1,5 @@
 import {websiteInfo} from "../composable/staticData";
+import Documents from '@/views/Documents'
 
 const title = `${websiteInfo.shortName} "${websiteInfo.name}" - ${websiteInfo.location}`
 export const documents = {
@@ -6,9 +7,10 @@ export const documents = {
     name: 'Документи',
     routes: [
         {
-            path: '/regulations',
-            name: 'Правилници и програми',
-            component: () => import('@/views/documents/Regulations.vue'),
+            path: '/documents/:slug',
+            name: 'Документи',
+            component: Documents,
+            props: true,
             meta: {
                 title: `Правилници и програми | ${title}`,
                 metaTags: [
@@ -22,78 +24,28 @@ export const documents = {
                     }
                 ]
             }
+        }
+    ],
+    children: [
+        {
+            path: '/documents/regulations',
+            name: 'Правилници и програми',
         },
         {
-            path: '/curriculum',
+            path: '/documents/curriculum',
             name: 'Учебни планове',
-            component: () => import('@/views/documents/Curriculum.vue'),
-            meta: {
-                title: `Учебни планове | ${title}`,
-                metaTags: [
-                    {
-                        name: 'description',
-                        content: 'The home page of our example app.'
-                    },
-                    {
-                        property: 'og:description',
-                        content: 'The home page of our example app.'
-                    }
-                ]
-            }
         },
         {
-            path: '/laws',
+            path: '/documents/laws',
             name: 'Нормативни докумети',
-            component: () => import('@/views/documents/Laws.vue'),
-            meta: {
-                title: `Нормативни докумети | ${title}`,
-                metaTags: [
-                    {
-                        name: 'description',
-                        content: 'The home page of our example app.'
-                    },
-                    {
-                        property: 'og:description',
-                        content: 'The home page of our example app.'
-                    }
-                ]
-            }
         },
         {
-            path: '/budget',
+            path: '/documents/budget',
             name: 'Бюджет',
-            component: () => import('@/views/documents/Budget.vue'),
-            meta: {
-                title: `Бюджет | ${title}`,
-                metaTags: [
-                    {
-                        name: 'description',
-                        content: 'The home page of our example app.'
-                    },
-                    {
-                        property: 'og:description',
-                        content: 'The home page of our example app.'
-                    }
-                ]
-            }
         },
         {
-            path: '/interest-activities',
+            path: '/documents/interest-activities',
             name: 'Занимания по интереси',
-            component: () => import('@/views/documents/InterestActivities.vue'),
-            meta: {
-                title: `Занимания по интереси | ${title}`,
-                metaTags: [
-                    {
-                        name: 'description',
-                        content: 'The home page of our example app.'
-                    },
-                    {
-                        property: 'og:description',
-                        content: 'The home page of our example app.'
-                    }
-                ]
-            }
         }
     ]
 }
