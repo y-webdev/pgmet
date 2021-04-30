@@ -5,7 +5,8 @@ export const singleNavItems = [
     {
         path: '/services',
         name: 'Услуги',
-        component: () => import('@/views/Services.vue'),
+        component: () => import('@/views/Documents.vue'),
+        props: { slug: 'services' },
         meta: {
             title: `Услуги | ${title}`,
             metaTags: [
@@ -23,7 +24,8 @@ export const singleNavItems = [
     {
         path: '/projects',
         name: 'Проекти',
-        component: () => import('@/views/Projects.vue'),
+        component: () => import('@/views/Article.vue'),
+        props: { slug: 'projects' },
         meta: {
             title: `Проекти | ${title}`,
             metaTags: [
@@ -41,7 +43,8 @@ export const singleNavItems = [
     {
         path: '/news',
         name: 'Новини',
-        component: () => import('@/views/News.vue'),
+        component: () => import('@/views/Article.vue'),
+        props: { slug: 'news' },
         meta: {
             title: `Новини | ${title}`,
             metaTags: [

@@ -6,7 +6,8 @@ export const footerNavItems = [
         path: '/privacy',
         name: 'Поверителност',
         icon: 'fas fa-user-shield',
-        component: () => import('@/views/Privacy.vue'),
+        component: () => import('@/views/Basic.vue'),
+        props: { slug: 'privacy'},
         meta: {
             title: `Поверителност | ${title}`,
             metaTags: [
@@ -25,7 +26,8 @@ export const footerNavItems = [
         path: '/cookies',
         name: 'Бисквитки',
         icon: 'fas fa-cookie-bite',
-        component: () => import('@/views/Cookies.vue'),
+        component: () => import('@/views/Basic.vue'),
+        props: { slug: 'cookies'},
         meta: {
             title: `Бисквитки | ${title}`,
             metaTags: [

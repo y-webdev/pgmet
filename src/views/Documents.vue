@@ -1,10 +1,13 @@
 <template>
-    <blank-docs v-if="!loading" v-for="(item, index) in data.results[slug]" :docs="item" :heading="mapHeading(slug, index, data.results.year)"/>
+    <blank-docs v-if="!loading" v-for="(item, index) in data.results[slug]" :docs="item"
+                :heading="mapHeading(slug, index, data.results.year)" @filePath="filePath($event)"/>
+    <documents-modal v-if="!loading" :data="data.results[slug]" :file="file"/>
 </template>
 
 <script>
 import fetchData from "@/composable/fetchData";
 import BlankDocs from "@/components/blanks/BlankDocs";
+import DocumentsModal from '@/components/modals/DocumentsModal';
 
 export default {
     props: ['slug'],
@@ -12,8 +15,14 @@ export default {
         const {data, loading, error} = fetchData(props.slug);
         return {data, loading, error};
     },
+    data() {
+        return {
+            file: null
+        }
+    },
     components: {
-        BlankDocs
+        BlankDocs,
+        DocumentsModal
     },
     methods: {
         mapHeading(heading, index, year) {
@@ -26,10 +35,14 @@ export default {
                 ],
                 'laws': ['Нормативни докумети'],
                 'budget': ['Бюджет'],
-                'interest-activities': ['Занимания по интереси - Наредба за приобщаващо образование']
+                'interest-activities': ['Занимания по интереси - Наредба за приобщаващо образование'],
+                'services': ['Административни услуги извършвани от ПГМЕТ']
             }
 
             return headings[heading][index]
+        },
+        filePath(file) {
+            this.file = file;
         }
     }
 }
