@@ -5,7 +5,6 @@
             <div v-html="handleData('description')"></div>
         </div>
     </section>
-    <a href="https://www.pgmet-knezha.bg/assets/uploads/1-1_5d0a9dd5c78fa.jpg" data-lightbox="image-1" data-title="My caption">Image #1</a>
 </template>
 
 <script>
