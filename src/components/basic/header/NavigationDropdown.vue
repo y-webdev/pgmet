@@ -1,5 +1,5 @@
 <template>
-    <li class="nav-item dropdown">
+    <li class="nav-item dropdown m-auto">
         <a class="nav-link dropdown-toggle" href="#" :id="id + '-dropdown'" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             {{ name }}
         </a>
