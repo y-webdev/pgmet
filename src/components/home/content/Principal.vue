@@ -3,7 +3,7 @@
         <div class="bg-white shadow">
             <div class="p-3">
                 <h3>{{ principal.header }}</h3>
-                <div class="text-justify">{{ principal.description }}</div>
+                <div class="text-justify" v-html="parseBBCode(principal.description)"></div>
                 <p class="fw-bold">{{ principal.name }}</p>
             </div>
         </div>
@@ -11,6 +11,8 @@
 </template>
 
 <script>
+
+
 export default {
     props: ['principal']
 }

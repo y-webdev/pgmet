@@ -177,4 +177,25 @@ section.container {
     height: 100%;
     border: none;
 }
+
+a.pdf:hover,
+button.pdf:hover {
+    text-decoration: none !important;
+    box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 25%);
+}
+
+.pdf::after {
+    content: "\f1c1";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    font-size: 2rem;
+    color: #dc3545;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 1rem;
+}
+.dd-link {
+    word-break: break-all;
+}
 </style>
