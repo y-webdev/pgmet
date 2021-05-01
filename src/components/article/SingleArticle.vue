@@ -1,14 +1,33 @@
 <template>
-    <section class="container">
+    <section v-if="!loading" class="container">
         <div class="bg-white py-5 px-3 shadow mb-3" ref="article">
-            <p>{{'Single article' + $route.params.id }}</p>
+            <h1 v-html="handleData('title')" class="text-center"></h1>
+            <div v-html="handleData('description')"></div>
         </div>
     </section>
 </template>
 
 <script>
+import fetchData from '@/composable/fetchData';
+import _ from 'lodash'
+
 export default {
-    name: "SingleArticle.vue"
+    props: ['id', 'page'],
+    setup(props) {
+        const {data, loading, error} = fetchData(props.page);
+        return {data, loading, error};
+    },
+    data() {
+        return {
+            subject: 'page',
+            description: ''
+        }
+    },
+    methods: {
+        handleData(key) {
+            return _.find(this.data.results[this.page], {'id': this.id})[key]
+        }
+    }
 }
 </script>
 

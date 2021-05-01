@@ -26,17 +26,10 @@ export const singleNavItems = [
 
 export const singleArticle = [
     {
-        path: '/news/:id',
-        name: 'Single Новини',
+        path: '/:page/:id',
+        name: 'Статия',
         component: () => import('@/components/article/SingleArticle.vue'),
         props: true,
-        meta: handleMetaTags('Single Новини')
-    },
-    {
-        path: '/projects/:id',
-        name: 'Single Проекти',
-        component: () => import('@/components/article/SingleArticle.vue'),
-        props: true,
-        meta: handleMetaTags('Single Проекти')
+        meta: handleMetaTags('Статия') // TODO: Fix name to use correct page name
     }
 ]
