@@ -47,7 +47,7 @@
                 <button class="btn btn-primary d-block ms-auto px-5 py-2" type="submit" @click="validateForm($event)">Изпрати</button>
             </div>
         </form>
-        <div v-if="contactForm !== 'enable'" class="loader-container">
+        <div v-if="false" class="loader-container">
             <Loader loaderText="изпращане"/>
         </div>
     </div>
