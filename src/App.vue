@@ -1,5 +1,5 @@
 <template>
-    <Loader v-if="loader"/>
+    <Loader v-if="loader" loaderText="зареждане"/>
     <div v-else>
         <Header/>
         <router-view/>

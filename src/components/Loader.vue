@@ -1,12 +1,13 @@
 <template>
     <div class="loader">
-        <p>зареждане</p>
+        <p>{{ loaderText }}</p>
         <span></span>
     </div>
 </template>
 
 <script>
 export default {
+    props: ['loaderText']
 }
 </script>
 
