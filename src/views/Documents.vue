@@ -1,13 +1,11 @@
 <template>
     <blank-docs v-if="!loading" v-for="(item, index) in data.results[slug]" :docs="item"
-                :heading="mapHeading(slug, index, data.results.year)" @filePath="filePath($event)"/>
-    <documents-modal v-if="!loading" :data="data.results[slug]" :file="file"/>
+                :heading="mapHeading(slug, index, data.results.year)"/>
 </template>
 
 <script>
 import fetchData from "@/composable/fetchData";
 import BlankDocs from "@/components/blanks/BlankDocs";
-import DocumentsModal from '@/components/modals/DocumentsModal';
 
 export default {
     props: ['slug'],
@@ -15,14 +13,8 @@ export default {
         const {data, loading, error} = fetchData(props.slug);
         return {data, loading, error};
     },
-    data() {
-        return {
-            file: null
-        }
-    },
     components: {
-        BlankDocs,
-        DocumentsModal
+        BlankDocs
     },
     methods: {
         mapHeading(heading, index, year) {
@@ -40,9 +32,6 @@ export default {
             }
 
             return headings[heading][index]
-        },
-        filePath(file) {
-            this.file = file;
         }
     }
 }

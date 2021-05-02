@@ -4,6 +4,7 @@
         <Header/>
         <router-view/>
         <Footer/>
+        <documents-modal/>
     </div>
 
 </template>
@@ -13,12 +14,16 @@ import Loader from './components/Loader';
 import Header from './components/basic/Header';
 import Footer from './components/basic/Footer';
 import router from "./router";
+import DocumentsModal from '@/components/modals/DocumentsModal';
+
+
 
 export default {
     components: {
         Loader,
         Header,
-        Footer
+        Footer,
+        DocumentsModal
     },
     data() {
         return {
@@ -108,6 +113,13 @@ export default {
     font-weight: 900;
     font-style: normal;
 }
+* {
+    border-radius: 0 !important;
+}
+
+body {
+    font-family: Repo, sans-serif !important;
+}
 
 #app {
     font-family: Repo, sans-serif;
@@ -195,7 +207,21 @@ button.pdf:hover {
     transform: translateY(-50%);
     left: 1rem;
 }
+
+body #lightbox {
+    position: fixed;
+}
+
 .dd-link {
     word-break: break-all;
+}
+
+.lb-dataContainer {
+    background: white
+}
+
+.lb-data .lb-close {
+    background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgBAMAAACBVGfHAAAAMFBMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABaPxwLAAAAD3RSTlMAc2tleufkXe3f29dFPVwy9b1PAAAAn0lEQVQoz1XPsQ3CQBBE0QEaoAPcASkZdOIGECEpAYVQAhWQ0gRVGNtCkAxIu+d/XHa7Tyt9PQ6q3vGmqxv+c3/U+slg7VFbuwG418yQ33InrSaysAcpCSAIIAkAEgCSAJIAkgBid1JNAkDKhamColJBdAK7/wNDFpFJdIAsApQiQBJAEAAkASQB5GQvq+iXWnd19KhLgELeup/r7M3+CxTjl/iKxBkmAAAAAElFTkSuQmCC') top right no-repeat !important;
+    background-size: 25px 25px !important;
 }
 </style>

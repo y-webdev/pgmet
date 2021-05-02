@@ -31,15 +31,15 @@ export const parseBBCode = (data) => {
         '\\[\\/justify\\]': '</p>',
         '\\[center\\]': '<p class="text-center">',
         '\\[\\/center\\]': '</p>',
-        '\\[lightbox group=(.*?)\\](.*?)\\[\\/lightbox\\]': '<a class="example-image-link col-lg-3 col-md-4 col-sm-6 mb-4" href="$2" data-lightbox="$1"><img src="$2" class="square-img w-100 border p-1"></a>',
-        '\\[lightbox2 group=(.*?)\\](.*?)\\[\\/lightbox2\\]': '<a class="example-image-link" href="$2" data-lightbox="$1"><img src="$2" class="w-25 border p-1 mr-3 float-left"></a>',
+        '\\[lightbox group=(.*?)\\](.*?)\\[\\/lightbox\\]': `<a class="example-image-link col-lg-3 col-md-4 col-sm-6 mb-4" href="${process.env.VUE_APP_HOST}$2" data-lightbox="$1"><img src="${process.env.VUE_APP_HOST}$2" class="square-img w-100 border p-1"></a>`,
+        '\\[lightbox2 group=(.*?)\\](.*?)\\[\\/lightbox2\\]': `<a class="example-image-link" href="$2" data-lightbox="$1"><img src="$2" class="w-25 border p-1 mr-3 float-left"></a>`,
         '\\[list\\]': '<ul class="ml-5">',
         '\\[\\/list\\]': '</ul>',
         '\\[list=1\\]': '<ol class="ml-5">',
         '\\[\\/list=1\\]': '</ol>',
         '\\[li\\]': '<li>',
         '\\[\\/li\\]': '</li>',
-        '\\[pdf=(.*?)\\](.*?)\\[\\/pdf\\]': `<a href="${process.env.VUE_APP_DOCS_PATH}pdf/$1" class="btn border mb-3 ps-5 position-relative w-100 pdf" download="$1">$2</a>`,
+        '\\[pdf=(.*?)\\](.*?)\\[\\/pdf\\]': `<a href="${process.env.VUE_APP_DOCS_PATH}pdf/$1" class="btn border mb-3 ps-5 position-relative w-100 pdf" download="download" target="_blank">$2</a>`,
         '\\[row\\]': '<div class="row">',
         '\\[\\/row\\]': '<div>'
     });
