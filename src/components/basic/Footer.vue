@@ -1,7 +1,7 @@
 <template>
     <footer class="bg-dark-blue text-white p-3">
-        <div v-if="!loading" class="row text-center border-bottom pb-3 mb-3">
-            <div v-for="link in data.results.links" class="col-md-3">
+        <div class="row text-center border-bottom pb-3 mb-3">
+            <div v-for="link in footer.links" class="col-md-3 py-2 py-md-0">
                 <a :href=link.link rel="nofollow" :title="link.name" target="_blank">{{ link.name }}</a>
             </div>
         </div>
@@ -19,16 +19,18 @@
             </div>
         </div>
     </footer>
-    <Ejournal v-if="!loading" :frameUrl="data.results.eJournal"/>
+    <Ejournal :frameUrl="footer.eJournal"/>
+    <file-size-error/>
 </template>
 
 <script>
 import { websiteInfo, webmaster } from '@/composable/staticData';
 import { footerNavItems } from '@/router/footerNavItems'
-import fetchData from "@/composable/fetchData";
 import Ejournal from '@/components/modals/Ejournal'
+import FileSizeError from '@/components/modals/FileSizeError'
 
 export default {
+    props: ['footer'],
     data() {
         return {
             websiteInfo,
@@ -37,11 +39,8 @@ export default {
         }
     },
     components: {
-        Ejournal
-    },
-    setup() {
-        const {data, loading, error} = fetchData('footer');
-        return {data, loading, error};
+        Ejournal,
+        FileSizeError
     },
     methods: {
         copyright() {

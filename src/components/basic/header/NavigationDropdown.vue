@@ -1,15 +1,15 @@
 <template>
-    <li class="nav-item dropdown m-auto">
-        <a class="nav-link dropdown-toggle" href="#" :id="id + '-dropdown'" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    <li class="nav-item dropdown m-auto w-100">
+        <a class="nav-link dropdown-toggle text-center" href="#" :id="id + '-dropdown'" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             {{ name }}
         </a>
-        <ul class="dropdown-menu" :aria-labelledby="id + '-dropdown'">
-            <li v-if="journal">
-                <a href="#" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#e-journal">
+        <ul class="dropdown-menu shadow" :aria-labelledby="id + '-dropdown'">
+            <li v-if="journal" class="text-center text-lg-start">
+                <a href="#" role="button" class="dropdown-item" data-bs-toggle="modal" data-bs-target="#e-journal">
                     <span>Дневник</span>
                 </a>
             </li>
-            <li v-for="link in links">
+            <li v-for="link in links" class="text-center text-lg-start">
                 <router-link :to="link.path" class="dropdown-item">
                     <span>{{ link.name }}</span>
                 </router-link>

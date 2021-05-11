@@ -1,24 +1,26 @@
 <template>
-    <Loader v-if="loader" loaderText="зареждане"/>
+    <Loader v-if="loading || loader" loaderText="зареждане"/>
     <div v-else>
-        <Header/>
+        <Header :nav="data.results.nav"/>
         <router-view/>
-        <Footer/>
+        <Footer :footer="data.results.footer"/>
         <documents-modal/>
     </div>
-
 </template>
 
 <script>
-import Loader from './components/Loader';
-import Header from './components/basic/Header';
-import Footer from './components/basic/Footer';
-import router from "./router";
+import fetchData from "@/composable/fetchData";
+import Loader from '@/components/Loader';
+import Header from '@/components/basic/Header';
+import Footer from '@/components/basic/Footer';
+import router from "@/router";
 import DocumentsModal from '@/components/modals/DocumentsModal';
 
-
-
 export default {
+    setup() {
+        const {data, loading, error} = fetchData('basics');
+        return {data, loading, error};
+    },
     components: {
         Loader,
         Header,
@@ -216,6 +218,10 @@ body #lightbox {
     word-break: break-all;
 }
 
+#lightbox {
+    top: 50% !important;
+    transform: translateY(-50%)
+}
 .lb-dataContainer {
     background: white
 }
@@ -223,5 +229,12 @@ body #lightbox {
 .lb-data .lb-close {
     background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgBAMAAACBVGfHAAAAMFBMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABaPxwLAAAAD3RSTlMAc2tleufkXe3f29dFPVwy9b1PAAAAn0lEQVQoz1XPsQ3CQBBE0QEaoAPcASkZdOIGECEpAYVQAhWQ0gRVGNtCkAxIu+d/XHa7Tyt9PQ6q3vGmqxv+c3/U+slg7VFbuwG418yQ33InrSaysAcpCSAIIAkAEgCSAJIAkgBid1JNAkDKhamColJBdAK7/wNDFpFJdIAsApQiQBJAEAAkASQB5GQvq+iXWnd19KhLgELeup/r7M3+CxTjl/iKxBkmAAAAAElFTkSuQmCC') top right no-repeat !important;
     background-size: 25px 25px !important;
+}
+
+.special-img {
+    position: absolute;
+    top: 5rem;
+    left:0;
+    padding: 0 2rem;
 }
 </style>

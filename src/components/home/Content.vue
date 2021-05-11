@@ -6,8 +6,8 @@
                 <div class="col-md-8 mb-4">
                     <Video :video="contentData.video"/>
                     <div class="row">
-                        <single-item :items="contentData.news" header="Последни новини"/>
-                        <single-item :items="contentData.projects" header="Проекти"/>
+                        <single-item :items="contentData.news" header="Последни новини" slug="news"/>
+                        <single-item :items="contentData.projects" header="Проекти" slug="projects"/>
                     </div>
                 </div>
             </div>

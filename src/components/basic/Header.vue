@@ -1,18 +1,17 @@
 <template>
-    <header v-if="!loading && data.results"  class="container">
-        <top-menu :data="data" :shortName="websiteInfo.shortName"/>
-        <Navigation :data="data"/>
+    <header v-if="nav"  class="container">
+        <top-menu :nav="nav" :shortName="websiteInfo.shortName"/>
+        <Navigation :nav="nav"/>
     </header>
 </template>
 
 <script>
 import { websiteInfo } from '../../composable/staticData';
-import fetchData from '../../composable/fetchData';
 import TopMenu from './header/TopMenu'
 import Navigation from './header/Navigation'
 
 export default {
-
+    props: ['nav'],
     data() {
         return {
             websiteInfo
@@ -21,11 +20,7 @@ export default {
     components: {
         TopMenu,
         Navigation
-    },
-    setup() {
-        const {data, loading, error} = fetchData('nav');
-        return {data, loading, error};
-    },
+    }
 }
 </script>
 

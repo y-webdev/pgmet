@@ -15,6 +15,8 @@
                                 <i :class="startRouter.icon"></i>
                             </router-link>
                         </li>
+                        <navigation-dropdown :name="aboutUs.name" :id="aboutUs.id" :links="aboutUs.routes" :journal="false"/>
+                        <navigation-dropdown :name="acceptance.name" :id="acceptance.id" :links="acceptance.routes" :journal="false"/>
                         <navigation-dropdown :name="aboutStudents.name" :id="aboutStudents.id" :links="aboutStudents.routes" :journal="true"/>
                         <navigation-dropdown :name="documents.name" :id="documents.id" :links="documents.children" :journal="false"/>
                         <li v-for="item in singleNavItems" class="nav-item m-auto">
@@ -27,7 +29,7 @@
                 </div>
             </div>
         </nav>
-        <nav-footer :data="data"/>
+        <nav-footer v-if="footerNav" :homeNews="nav.homeNews"/>
     </div>
 </template>
 
@@ -35,41 +37,51 @@
 import { websiteInfo } from '@/composable/staticData';
 import { startRouter } from '@/router/startRouter';
 import { singleNavItems } from '@/router/singleNavItems';
+import {aboutUs} from '@/router/aboutUs'
+import {acceptance} from '@/router/acceptance'
 import {aboutStudents} from '@/router/aboutStudents'
 import { documents } from '@/router/documents';
 import NavigationDropdown from '@/components/basic/header/NavigationDropdown'
 import NavFooter from '@/components/basic/header/NavFooter'
 
 export default {
-    props: ['data'],
+    props: ['nav'],
     data() {
         return {
             startRouter,
             singleNavItems,
             websiteInfo,
+            aboutUs,
+            acceptance,
             aboutStudents,
-            documents
+            documents,
+            footerNav: true
         }
     },
     components: {
         NavigationDropdown,
         NavFooter
     },
-    mounted() {
-        // TODO: Must fix this function. On load working, but on change route still working but throw error
-        window.addEventListener("scroll", () => {
-            const scrollPosition = window.scrollY;
+    methods: {
+        handleScroll() {
             const el = this.$refs.fixedMenu;
 
-            if (scrollPosition > 62) {
-                el.classList.add('fixed-top');
+            if (window.scrollY > 62) {
+                el.classList.add('fixed-top', 'shadow');
                 el.querySelector('.navbar-brand img').classList.add('w-50')
-
+                this.footerNav = false
             } else {
-                el.classList.remove('fixed-top');
+                el.classList.remove('fixed-top', 'shadow');
                 el.querySelector('.navbar-brand img').classList.remove('w-50')
+                this.footerNav = true
             }
-        });
+        }
+    },
+    mounted() {
+        window.addEventListener("scroll", this.handleScroll);
+    },
+    unmounted() {
+        window.removeEventListener('scroll', this.handleScroll);
     }
 }
 </script>

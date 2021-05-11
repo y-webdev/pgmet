@@ -9,7 +9,7 @@
 
 <script>
 import fetchData from '@/composable/fetchData';
-import _ from 'lodash'
+//import _ from 'lodash' // TODO: must be removed
 
 export default {
     props: ['id', 'page'],
@@ -17,15 +17,18 @@ export default {
         const {data, loading, error} = fetchData(props.page);
         return {data, loading, error};
     },
-    data() {
-        return {
-            subject: 'page',
-            description: ''
-        }
-    },
     methods: {
         handleData(key) {
             return _.find(this.data.results[this.page], {'id': this.id})[key]
+        }
+    },
+    updated() {
+        const xpath = '(//img[contains(@class, "special-img")]//ancestor::section//h1)[1]';
+        const xpathResult = document.evaluate(xpath, document, null, XPathResult.FIRST_ORDERED_NODE_TYPE, null)
+            .singleNodeValue
+
+        if (xpathResult) {
+            xpathResult.classList.add('text-white')
         }
     }
 }

@@ -8,9 +8,10 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.3",
-    "bootstrap": "^5.0.0-beta3",
+    "bootstrap": "^5.0.0",
     "core-js": "^3.6.5",
     "js-bbcode-parser": "^3.0.4",
+    "leaflet": "^1.7.1",
     "lightbox2": "^2.11.3",
     "lodash": "^4.17.21",
     "mobile-device-detect": "^0.4.3",

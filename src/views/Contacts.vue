@@ -1,5 +1,5 @@
 <template>
-    <section v-if="!loading" class="container">
+    <section v-if="!loading"  class="container">
         <div class="bg-white py-5 px-3 shadow mb-3">
             <Location :location="data.results.location"/>
             <contact-form v-if="data.results.contactForm === 'enable'"/>
@@ -28,7 +28,3 @@ export default {
     }
 }
 </script>
-
-<style scoped>
-
-</style>
