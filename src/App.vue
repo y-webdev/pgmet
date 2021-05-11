@@ -39,7 +39,8 @@ export default {
         })
 
         router.afterEach(() => {
-            setTimeout(() => this.loader = false, 500)
+            //setTimeout(() => this.loader = false, 500)
+            this.loader = false
         })
     }
 }

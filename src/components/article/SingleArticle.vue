@@ -9,7 +9,6 @@
 
 <script>
 import fetchData from '@/composable/fetchData';
-//import _ from 'lodash' // TODO: must be removed
 
 export default {
     props: ['id', 'page'],

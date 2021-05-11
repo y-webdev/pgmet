@@ -2,7 +2,7 @@
     <footer class="bg-dark-blue text-white p-3">
         <div class="row text-center border-bottom pb-3 mb-3">
             <div v-for="link in footer.links" class="col-md-3 py-2 py-md-0">
-                <a :href=link.link rel="nofollow" :title="link.name" target="_blank">{{ link.name }}</a>
+                <a class="text-white" :href=link.link rel="nofollow" :title="link.name" target="_blank">{{ link.name }}</a>
             </div>
         </div>
         <div class="row text-center small">
@@ -10,7 +10,7 @@
                 &copy; {{ copyright() }}.
             </div>
             <div class="col-md-4 m-auto small">
-                <router-link v-for="item in footerNavItems" :to="item.path" rel="nofollow" :title="item.name" class="pe-2"><i :class="`${item.icon} text-white`"></i>
+                <router-link v-for="item in footerNavItems" :to="item.path" rel="nofollow" :title="item.name" class="pe-2 text-white"><i :class="`${item.icon} text-white`"></i>
                     {{ item.name }}</router-link>
             </div>
             <div class="col-md-4 small p-3">

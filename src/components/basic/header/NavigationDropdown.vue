@@ -10,7 +10,7 @@
                 </a>
             </li>
             <li v-for="link in links" class="text-center text-lg-start">
-                <router-link :to="link.path" class="dropdown-item">
+                <router-link :to="link.path" class="dropdown-item" :title="link.name">
                     <span>{{ link.name }}</span>
                 </router-link>
             </li>

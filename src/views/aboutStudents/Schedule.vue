@@ -134,9 +134,9 @@ export default {
             return day;
         },
         selectClassName(event) {
-            this.getData(event.target.value)
+            this.setData(event.target.value)
         },
-        getData(id) {
+        setData(id) {
             const {data, loading, error} = fetchData(`schedule&class=${id}`);
             this.id = id;
             this.data = data;
@@ -144,9 +144,7 @@ export default {
         }
     },
     mounted() {
-        const {data, loading, error} = fetchData(`schedule&class=${this.id}`);
-        this.data = data;
-        this.loading = loading;
+        this.setData(this.id)
     }
 }
 </script>

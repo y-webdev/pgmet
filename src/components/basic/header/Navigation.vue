@@ -11,7 +11,7 @@
                 <div class="collapse navbar-collapse" id="navbarContent">
                     <ul class="navbar-nav text-uppercase m-auto">
                         <li class="nav-item m-auto">
-                            <router-link :to="startRouter.path" class="nav-link">
+                            <router-link :to="startRouter.path" class="nav-link" :title="startRouter.name">
                                 <i :class="startRouter.icon"></i>
                             </router-link>
                         </li>
@@ -20,7 +20,7 @@
                         <navigation-dropdown :name="aboutStudents.name" :id="aboutStudents.id" :links="aboutStudents.routes" :journal="true"/>
                         <navigation-dropdown :name="documents.name" :id="documents.id" :links="documents.children" :journal="false"/>
                         <li v-for="item in singleNavItems" class="nav-item m-auto">
-                            <router-link :to="item.path" class="nav-link">
+                            <router-link :to="item.path" class="nav-link" :title="item.name">
                                 <i v-if="item.icon" :class="item.icon"></i>
                                 <span v-else>{{ item.name }}</span>
                             </router-link>
